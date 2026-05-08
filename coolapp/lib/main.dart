@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart'; // gives access to prebuilt widgets and material design components
-  
+
 Color randomColor() {
   return Color.fromRGBO(
     Random().nextInt(256),
@@ -16,10 +16,30 @@ void main() {
   ); // entry point of the app, runs the MyApp widget which inflates to the size of whichever screen we are running on
 }
 
-// stateless widget = no dynamic data
-class MyApp extends StatelessWidget {
+// immutable
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+// mutable
+class _MyAppState extends State<MyApp> {
+  int count = 0;
+
+  // to initialise data (fetch from database, etc.)
+  @override
+  void initState() {
+    super.initState();
+  }
+  
+  @override
+  void dispose() {
+    super.dispose();
+  }
+  
+  
   @override
   Widget build(BuildContext context) {
     // build method = describes the UI
@@ -33,40 +53,55 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter is Fun!'),
         ),
 
-        // builders = allow us to program data to a listview dynamically
-        body: ListView.builder(
-          itemBuilder: (_, index) {
-            return Container(
-              color: randomColor(),
-              width: 500,
-              height: 500,
-            );
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            setState(() {
+              count++;
+            });
           },
-        )
+        ),
 
+        body: Center(
+          child: Text(
+            '$count',
+            style: TextStyle(fontSize: 60),
+          ),
+        ),
+
+
+        // // builders = allow us to program data to a listview dynamically
+        // body: ListView.builder(
+        //   itemBuilder: (_, index) {
+        //     return Container(
+        //       color: randomColor(),
+        //       width: 500,
+        //       height: 500,
+        //     );
+        //   },
+        // )
 
         // body: ListView(
         //   scrollDirection: Axis.horizontal,
         //   children: [
         //     Container(
         //       color: Colors.blue,
-        //       width: 5000, 
+        //       width: 5000,
         //       height: 5000,
         //     ),
         //     Container(
         //       color: Colors.orange,
-        //       width: 5000, 
+        //       width: 5000,
         //       height: 5000,
         //     ),
         //     Container(
         //       color: Colors.green,
-        //       width: 5000, 
+        //       width: 5000,
         //       height: 5000,
         //     ),
         //   ],
         // )
-        
-        
+
         // // flutter prebuilt widgets
 
         // floatingActionButton: FloatingActionButton(
@@ -77,15 +112,15 @@ class MyApp extends StatelessWidget {
         // bottomNavigationBar: BottomNavigationBar(
         //   items: const [
         //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.home), 
+        //       icon: Icon(Icons.home),
         //       label: 'Home'
         //     ),
         //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.business), 
+        //       icon: Icon(Icons.business),
         //       label: 'Business'
         //     ),
         //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.school), 
+        //       icon: Icon(Icons.school),
         //       label: 'School'
         //     ),
         //   ],
@@ -94,9 +129,6 @@ class MyApp extends StatelessWidget {
         // drawer: Drawer(
         //   child: Text('hey'),
         // ),
-
-
-
 
         // // center widget = called by right-clicking and selecting 'refactor'
         // body: Center(
