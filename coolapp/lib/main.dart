@@ -23,33 +23,58 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter is Fun!'),
         ),
 
-        // flutter prebuilt widgets
-
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () => {print('pressed!')},
-        ),
-
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home), 
-              label: 'Home'
+        body: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            Container(
+              color: Colors.blue,
+              width: 5000, 
+              height: 5000,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.business), 
-              label: 'Business'
+            Container(
+              color: Colors.orange,
+              width: 5000, 
+              height: 5000,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.school), 
-              label: 'School'
+            Container(
+              color: Colors.green,
+              width: 5000, 
+              height: 5000,
             ),
           ],
-        ),
+        )
+        
+        
+        // // flutter prebuilt widgets
 
-        drawer: Drawer(
-          child: Text('hey'),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   child: Icon(Icons.add),
+        //   onPressed: () => {print('pressed!')},
+        // ),
+
+        // bottomNavigationBar: BottomNavigationBar(
+        //   items: const [
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.home), 
+        //       label: 'Home'
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.business), 
+        //       label: 'Business'
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.school), 
+        //       label: 'School'
+        //     ),
+        //   ],
+        // ),
+
+        // drawer: Drawer(
+        //   child: Text('hey'),
+        // ),
+
+
+
 
         // // center widget = called by right-clicking and selecting 'refactor'
         // body: Center(
