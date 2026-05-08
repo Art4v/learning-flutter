@@ -14,8 +14,13 @@ class MyApp extends StatelessWidget {
     
     // build method = describes the UI
     return MaterialApp( // used as the root of the application, allowing us to configure themes and routes
-      theme: ,
-      routes: ,
+      // scaffold = visual layout structure
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+          title: const Text('Flutter is Fun!'),
+        ),
+      )
     );
   }
 }
