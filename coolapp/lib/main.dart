@@ -32,28 +32,51 @@ class MyApp extends StatelessWidget {
         //     padding: const EdgeInsets.all(10),
         //   ),
         // ),
-      
+
         // column = lay out multiple widgets vertically
         // row = lay out multiple widgets vertically
-        body: Row(
-          
-          // main axis = parallel to flow
-          // cross axis = perpendicular to flow
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          
-          children: [
-            // expanded = tells a child to take up any available space
-            Expanded(
-              flex: 4, // gives more space than other children
-              child: Icon(Icons.backpack),
-            ),
-            Icon(Icons.leaderboard),
-            Icon(Icons.person)
-          ],
-      ),
+        // body: Row(
 
-        )
+        //   // main axis = parallel to flow
+        //   // cross axis = perpendicular to flow
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   crossAxisAlignment: CrossAxisAlignment.end,
+
+        //   children: [
+        //     // expanded = tells a child to take up any available space
+        //     Expanded(
+        //       flex: 4, // gives more space than other children
+        //       child: Icon(Icons.backpack),
+        //     ),
+        //     Icon(Icons.leaderboard),
+        //     Icon(Icons.person)
+        //   ],
+        // ),
+
+        // stack = allows widgets to float on top of each other
+        body: Stack(
+          children: [
+            Container(
+              color: Colors.red,
+              width: 100, 
+              height: 100, 
+            ),
+            
+            // positioned = similar to absolute position in css
+            // Positioned(
+            //   child: Icon(Icons.verified),
+            //   top: 25,
+            //   left: 25, 
+            // ),
+            // align = align on the page
+            Align(
+              child: Icon(Icons.verified),
+              alignment: Alignment.center,
+            )
+
+          ],
+        ),
+      ),
     );
   }
 }
