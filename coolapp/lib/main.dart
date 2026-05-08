@@ -10,25 +10,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        // appbar widget
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: const Text('Flutter is Fun'),
-        ),
+    return MaterialApp(home: HomeScreen());
+  }
+}
 
-        body: ElevatedButton(
-          child: Text('About'), 
-          onPressed: () {
-            Navigator.push(
-              context, 
-              MaterialPageRoute(
-                builder: (_) => AboutScreen(),
-              ),
-            );
-          }, 
-        ),
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: const Text('Flutter is Fun'),
+      ),
+      body: ElevatedButton(
+        child: Text('About'),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => AboutScreen()),
+          );
+        },
       ),
     );
   }
