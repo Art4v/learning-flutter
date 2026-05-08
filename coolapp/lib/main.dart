@@ -23,16 +23,37 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter is Fun!'),
         ),
 
-        // center widget = called by right-clicking and selecting 'refactor'
-        body: Center(
-          // container widget = similar to divs in html
-          child: Container(
-            child: const Text('Hello, World.'),
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(10),
-          ),
-        ),
+        // // center widget = called by right-clicking and selecting 'refactor'
+        // body: Center(
+        //   // container widget = similar to divs in html
+        //   child: Container(
+        //     child: const Text('Hello, World.'),
+        //     margin: const EdgeInsets.all(10),
+        //     padding: const EdgeInsets.all(10),
+        //   ),
+        // ),
+      
+        // column = lay out multiple widgets vertically
+        // row = lay out multiple widgets vertically
+        body: Row(
+          
+          // main axis = parallel to flow
+          // cross axis = perpendicular to flow
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          
+          children: [
+            // expanded = tells a child to take up any available space
+            Expanded(
+              flex: 4, // gives more space than other children
+              child: Icon(Icons.backpack),
+            ),
+            Icon(Icons.leaderboard),
+            Icon(Icons.person)
+          ],
       ),
+
+        )
     );
   }
 }
