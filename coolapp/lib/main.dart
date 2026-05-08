@@ -1,4 +1,14 @@
+import 'dart:math';
 import 'package:flutter/material.dart'; // gives access to prebuilt widgets and material design components
+  
+Color randomColor() {
+  return Color.fromRGBO(
+    Random().nextInt(256),
+    Random().nextInt(256),
+    Random().nextInt(256),
+    1,
+  );
+}
 
 void main() {
   runApp(
@@ -23,26 +33,38 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter is Fun!'),
         ),
 
-        body: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            Container(
-              color: Colors.blue,
-              width: 5000, 
-              height: 5000,
-            ),
-            Container(
-              color: Colors.orange,
-              width: 5000, 
-              height: 5000,
-            ),
-            Container(
-              color: Colors.green,
-              width: 5000, 
-              height: 5000,
-            ),
-          ],
+        // builders = allow us to program data to a listview dynamically
+        body: ListView.builder(
+          itemBuilder: (_, index) {
+            return Container(
+              color: randomColor(),
+              width: 500,
+              height: 500,
+            );
+          },
         )
+
+
+        // body: ListView(
+        //   scrollDirection: Axis.horizontal,
+        //   children: [
+        //     Container(
+        //       color: Colors.blue,
+        //       width: 5000, 
+        //       height: 5000,
+        //     ),
+        //     Container(
+        //       color: Colors.orange,
+        //       width: 5000, 
+        //       height: 5000,
+        //     ),
+        //     Container(
+        //       color: Colors.green,
+        //       width: 5000, 
+        //       height: 5000,
+        //     ),
+        //   ],
+        // )
         
         
         // // flutter prebuilt widgets
