@@ -23,6 +23,34 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter is Fun!'),
         ),
 
+        // flutter prebuilt widgets
+
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () => {print('pressed!')},
+        ),
+
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home), 
+              label: 'Home'
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.business), 
+              label: 'Business'
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.school), 
+              label: 'School'
+            ),
+          ],
+        ),
+
+        drawer: Drawer(
+          child: Text('hey'),
+        ),
+
         // // center widget = called by right-clicking and selecting 'refactor'
         // body: Center(
         //   // container widget = similar to divs in html
@@ -54,28 +82,28 @@ class MyApp extends StatelessWidget {
         // ),
 
         // stack = allows widgets to float on top of each other
-        body: Stack(
-          children: [
-            Container(
-              color: Colors.red,
-              width: 100, 
-              height: 100, 
-            ),
-            
-            // positioned = similar to absolute position in css
-            // Positioned(
-            //   child: Icon(Icons.verified),
-            //   top: 25,
-            //   left: 25, 
-            // ),
-            // align = align on the page
-            Align(
-              child: Icon(Icons.verified),
-              alignment: Alignment.center,
-            )
+        // body: Stack(
+        //   children: [
+        //     Container(
+        //       color: Colors.red,
+        //       width: 100,
+        //       height: 100,
+        //     ),
 
-          ],
-        ),
+        //     // positioned = similar to absolute position in css
+        //     // Positioned(
+        //     //   child: Icon(Icons.verified),
+        //     //   top: 25,
+        //     //   left: 25,
+        //     // ),
+        //     // align = align on the page
+        //     Align(
+        //       child: Icon(Icons.verified),
+        //       alignment: Alignment.center,
+        //     )
+
+        //   ],
+        // ),
       ),
     );
   }
